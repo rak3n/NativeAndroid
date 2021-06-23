@@ -14,7 +14,8 @@ class OTPBroadcastReciever: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         var mess = Telephony.Sms.Intents.getMessagesFromIntent(intent)
         var msg = mess[0].messageBody
-        print(msg+"---------------------------------------->")
+        println(msg+"---------------------------------------->")
+        communication.showSnackBar("Message from")
         communication.setOTP(msg.toString())
     }
 
